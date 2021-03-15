@@ -5,8 +5,8 @@
 
 /**
  * struct print - struct to print various formats
- * @type - type to print
- * @funct - function to print
+ * @type: type to print
+ * @funct: function to print
  *
  */
 
