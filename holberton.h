@@ -20,6 +20,6 @@ typedef struct print
 int _printf(const char *format, ...);
 int _putchar(char c);
 
-int printchar(va_list a__list);
-
+int printchar(va_list a_list);
+int printstr(va_list a_list);
 #endif
