@@ -18,6 +18,8 @@ int _printf(const char *format, ...)
 	print_f f[] = {
 		{"c", printchar},
 		{"s", printstr},
+		{"d", printint},
+		{"i", printint},
 		{NULL, NULL}
 	};
 
@@ -39,7 +41,7 @@ int _printf(const char *format, ...)
 			i++;
 
 		}
-		else if (format[i + 1] != 'c' && format[i + 1] != 's')
+		else if (format[i + 1] != 'c' && format[i + 1] != 's' && format[i + 1] != 'd' && format[i + 1] != 'i')
 		{
 			fcount += _putchar('%');
 			fcount += _putchar(format[i + 1]);
@@ -48,7 +50,7 @@ int _printf(const char *format, ...)
 
 		else
 		{
-			for (k = 0; k < 2; k++)
+			for (k = 0; k < 4; k++)
 			{
 				if (format[i + 1] == *f[k].type)
 					fcount += f[k].funct(a_list);

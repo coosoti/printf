@@ -22,4 +22,7 @@ int _putchar(char c);
 
 int printchar(va_list a_list);
 int printstr(va_list a_list);
+void printd(int num);
+int printint(va_list a_list);
+int countint(int num);
 #endif
