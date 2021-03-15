@@ -3,20 +3,19 @@
 #include "holberton.h"
 
 /**
-*printchar - function that prints a char
-*@a_list: list of arguments
+* printchar - function that prints a char
+* @a_list: list of arguments
 *
-*Return: char printed to the the stdout
+* Return: char printed to the the stdout
  */
 
 int printchar(va_list a_list)
 {
-char ch = (char)va_arg(a_list, int);
+	char ch = (char)va_arg(a_list, int);
 
-_putchar(ch);
+	_putchar(ch);
 
-return (1);
-
+	return (1);
 }
 
 
@@ -45,11 +44,7 @@ int printstr(va_list a_list)
 	}
 
 	return (i);
-
 }
-
-
-
 
 /**
  *printd - function that prints a decimal number
@@ -59,64 +54,58 @@ int printstr(va_list a_list)
 
 void printd(int num)
 {
-  unsigned int k = num;
+	unsigned int k = num;
 
-  if (k / 10 != 0)
-    printd(k / 10);
-  _putchar(k % 10 + '0');
+	if (k / 10 != 0)
+		printd(k / 10);
+	_putchar(k % 10 + '0');
 
 }
 
-
-
 /**
- *countint - function to count length of an int
- *@num: int arg
- *Return: length of int
+ * countint - function to count length of an int
+ * @num: int arg
+ * Return: length of int
  */
 
 int countint(int num)
 {
-  unsigned int k = num;
-  int count;
+	unsigned int k = num;
+	int count;
 
-  while (k > 0)
-    {
-      k = k / 10;
-      count++;
-    }
+	while (k > 0)
+	{
+		k = k / 10;
+		count++;
+	}
 
-  return (count);
+	return (count);
 }
 
-
-
-
-
 /**
- *printint - function to print an integer
- *@_list: list of argument
- *Return: count of ints digit
+ * printint - function to print an integer
+ * @a_list: list of argument
+ * Return: count of ints digit
  */
 
 int printint(va_list a_list)
 {
-  int count = 0;
-  int num = va_arg(a_list, int);
+	int count = 0;
+	int num = va_arg(a_list, int);
 
-  if (num < 0)
-    {
-      num = -(num);
-      _putchar('-');
-      count++;
-    }
+	if (num < 0)
+	{
+		num = -(num);
+		_putchar('-');
+		count++;
+	}
 
-  if (num == 0)
-    count++;
+	if (num == 0)
+		count++;
 
-  count += countint(num);
-    printd(num);
+	count += countint(num);
+	printd(num);
 
-    return (count);
+	return (count);
 
 }
