@@ -62,7 +62,7 @@ int printNaN(char c1, char c2)
 
 /**
  *printint - prints an integer of format 'd'
- *@_list: list of args
+ *@a_list: list of args
  *Return: count of chars printed
  */
 
@@ -83,7 +83,7 @@ int printint(va_list a_list)
     {
       n = num;
     }
-  while ((n /i) > 9)
+  while ((n / i) > 9)
     {
       i *= 10;
     }
@@ -93,5 +93,5 @@ int printint(va_list a_list)
       i /= 10;
       counter++;
     }
-  return(counter);
+  return (counter);
 }
