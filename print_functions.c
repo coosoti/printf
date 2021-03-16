@@ -1,111 +1,39 @@
-#include <stdlib.h>
-#include <stdarg.h>
 #include "holberton.h"
 
 /**
-* printchar - function that prints a char
-* @a_list: list of arguments
-*
-* Return: char printed to the the stdout
+ * printchar - prints a character to stdout
+ *
+ * @a_list: list to increment
+ * Return: 1(one character printed)
  */
-
 int printchar(va_list a_list)
 {
-	char ch = (char)va_arg(a_list, int);
+	char c;
 
-	_putchar(ch);
+	c = va_arg(a_list, int);
+	_putchar(c);
 
 	return (1);
 }
 
-
 /**
- * printstr - function that prints a string
+ * printstr - prints chars to stdout
  *
- * @a_list: list of arguments
+ * @a_list:list to args
  *
- * Return: str printed to stdout
+ * Return: number of char printed
  */
-
 int printstr(va_list a_list)
 {
-	int i = 0;
+	char *str;
+	int i;
 
-	char *str = va_arg(a_list, char *);
-
+	str = va_arg(a_list, char *);
 	if (str == NULL)
 		str = "(null)";
-
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		_putchar(str[i]);
-		i++;
-
 	}
-
 	return (i);
-}
-
-/**
- *printd - function that prints a decimal number
- *@num: integer to be printed
- *Return: void
- */
-
-void printd(int num)
-{
-	unsigned int k = num;
-
-	if (k / 10 != 0)
-		printd(k / 10);
-	_putchar(k % 10 + '0');
-
-}
-
-/**
- * countint - function to count length of an int
- * @num: int arg
- * Return: length of int
- */
-
-int countint(int num)
-{
-	unsigned int k = num;
-	int count;
-
-	while (k > 0)
-	{
-		k = k / 10;
-		count++;
-	}
-
-	return (count);
-}
-
-/**
- * printint - function to print an integer
- * @a_list: list of argument
- * Return: count of ints digit
- */
-
-int printint(va_list a_list)
-{
-	int count = 0;
-	int num = va_arg(a_list, int);
-
-	if (num < 0)
-	{
-		num = -(num);
-		_putchar('-');
-		count++;
-	}
-
-	if (num == 0)
-		count++;
-
-	count += countint(num);
-	printd(num);
-
-	return (count);
-
 }
