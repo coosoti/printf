@@ -12,6 +12,8 @@ int (*_printfunc(char fi))(va_list)
 	print_f f[] = {
 		{'c', printchar},
 		{'s', printstr},
+		{'d', printint},
+		{'i', printint},
 		{'\0', NULL}
 	};
 	while (f[i].type)
