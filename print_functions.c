@@ -37,3 +37,25 @@ int printstr(va_list a_list)
 	}
 	return (i);
 }
+
+/**
+ * printNaN - func to handle if no march in struct
+ * @c1: first arg - should be %
+ * @c2: arg 2 - should be specifier
+ * Return: 1 if c2 is % and 2 otherwise
+ */
+
+int printNaN(char c1, char c2)
+{
+	if (c2 == '%')
+	{
+		_putchar(c2);
+		return (1);
+	}
+	else
+	{
+		_putchar(c1);
+		_putchar(c2);
+		return (2);
+	}
+}
