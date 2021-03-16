@@ -31,48 +31,40 @@ int (*_printfunc(char fi))(va_list)
  * @format: character string containing 0 or more directive
  * Return: number of chars printed exluding null byte
  */
-
 int _printf(const char *format, ...)
 {
-	unsigned int i, k, fcount = 0;
+	int i, counter;
+
+	int (*fn)(va_list);
+
 	va_list a_list;
 
-	print_f f[] = {
-		{"c", printchar},
-		{"s", printstr},
-		{"d", printint},
-		{"i", printint},
-		{NULL, NULL}
-	};
-	va_start(a_list, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 		return (-1);
-	for (i = 0; format[i] != '\0'; i++)
+
+	va_start(a_list, format);
+	i = counter = 0;
+
+	while (format[i] != '\0')
 	{
-		if (format[i] != '%')
-			fcount += _putchar(format[i]);
-		else if (format[i + 1] == '%')
+		if (format[i] == '%')
 		{
-			fcount += _putchar('%');
-			i++;
-		}
-		else if (format[i + 1] != 'c' && format[i + 1] != 's'
-			 && format[i + 1] != 'd' && format[i + 1] != 'i')
-		{
-			fcount += _putchar('%');
-			fcount += _putchar(format[i + 1]);
+			if (format[i + 1] == '\0')
+				return (-1);
+			fn = _printfunc(format[i + 1]);
+			if (fn == NULL)
+				counter += printNaN(format[i], format[i + 1]);
+			else
+				counter += fn(a_list);
 			i++;
 		}
 		else
 		{
-			for (k = 0; k < 4; k++)
-			{
-				if (format[i + 1] == *f[k].type)
-					fcount += f[k].funct(a_list);
-			}
-			i++;
+			_putchar(format[i]);
+			counter++;
 		}
+		i++;
 	}
 	va_end(a_list);
-	return (fcount);
+	return (counter);
 }
