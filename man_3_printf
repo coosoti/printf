@@ -4,18 +4,27 @@
     printchar, printstr, printint, printNaN
 
 .SH SYNOPSIS
-int _printf(const char *format, ...);
-int _putchar(char c);
-int printNaN(char c1, char c2);
+    int _printf(const char *format, ...);
+    int _putchar(char c);
+    int printNaN(char c1, char c2);
 
-int printchar(va_list a_list);
-int printstr(va_list a_list);
-int printint(va_list a_list);
-int (*_printfunc(char fi))(va_list);
+    int printchar(va_list a_list);
+    int printstr(va_list a_list);
+    int printint(va_list a_list);
+    int (*_printfunc(char fi))(va_list);
 
-DESCRIPTION
+.SH DESCRIPTION
+The functions in the _printf() family produce output according to a format as described below. The functions _printf() write output to stdout, the standard output.
 
-RETURN VALUE
+.SH FORMAT OF THE FORMAT STRING
+.B c
+Print a character by getting its ASCII value and then written to stdout.
+
+.B s
+Write an integer to stdout by converting the passed int argument to a signed decimal notation. 
+
+.SH RETURN VALUE
+
 
 OPTIONS/SPECIFIERS
 
