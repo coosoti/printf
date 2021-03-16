@@ -1,6 +1,30 @@
-#include <stdlib.h>
 #include "holberton.h"
-#include <stdarg.h>
+
+/**
+ * _printfunc - get the right function corresponding to format specified
+ * @fi: input format
+ * Return:pointer to function that corresponds with specified format
+ *
+ */
+int (*_printfunc(char fi))(va_list)
+{
+	int i = 0;
+	print_f f[] = {
+		{'c', printchar},
+		{'s', printstr},
+		{'\0', NULL}
+	};
+	while (f[i].type)
+	{
+		if (fi == f[i].type)
+		{
+			return (f[i].funct);
+		}
+		i++;
+
+	}
+	return (NULL);
+}
 
 /**
  * _printf - function that produces output according to format passed
