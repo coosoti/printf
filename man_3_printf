@@ -33,10 +33,14 @@ Write an array of character type to stdout.
 On successful return, these functions return the number of characters printed, excluding the null byte used to end output to strings.
 If an output error is encountered, a negative value is returned.
 
-OPTIONS/SPECIFIERS
+.SH EXAMPLE
 
-EXAMPLE
+_printf("Character:[%c]\n", 'H'); ---> output is  Character:[H]
 
-BUGS
+_printf("String:[%s]\n", "I am a string !"); --> output is String:[I am a string !]
 
-AUTHOR
+.SH BUGS
+No known bugs.
+
+.SH AUTHOR
+Joan Mbarire & Charles Osoti.
