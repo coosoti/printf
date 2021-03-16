@@ -61,37 +61,37 @@ int printNaN(char c1, char c2)
 }
 
 /**
- *printint - prints an integer of format 'd'
- *@a_list: list of args
- *Return: count of chars printed
+ * printint - prints an integer of format 'd'
+ * @a_list: list of args
+ * Return: count of chars printed
  */
 
 int printint(va_list a_list)
 {
-  int num = va_arg(a_list, int);
-  unsigned int n;
-  int counter = 0;
-  int i = 1;
+	int num = va_arg(a_list, int);
+	unsigned int n;
+	int counter = 0;
+	int i = 1;
 
-  if (num < 0)
-    {
-      n = -num;
-      _putchar('-');
-      counter++;
-    }
-  else
-    {
-      n = num;
-    }
-  while ((n / i) > 9)
-    {
-      i *= 10;
-    }
-  while (i >= 1)
-    {
-      _putchar(((n / i) % 10) + '0');
-      i /= 10;
-      counter++;
-    }
-  return (counter);
+	if (num < 0)
+	{
+		n = -num;
+		_putchar('-');
+		counter++;
+	}
+	else
+	{
+		n = num;
+	}
+	while ((n / i) > 9)
+	{
+		i *= 10;
+	}
+	while (i >= 1)
+	{
+		_putchar(((n / i) % 10) + '0');
+		i /= 10;
+		counter++;
+	}
+	return (counter);
 }
