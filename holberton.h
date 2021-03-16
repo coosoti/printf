@@ -26,5 +26,5 @@ int printNaN(char c1, char c2);
 int printchar(va_list a_list);
 int printstr(va_list a_list);
 int printint(va_list a_list);
-
+int (*_printfunc(char fi))(va_list);
 #endif
