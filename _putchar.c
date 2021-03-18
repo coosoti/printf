@@ -2,7 +2,7 @@
 
 /**
  * _putchar - my func to write character c to stdout
- *
+ * @c: char to print
  * Return: 1 on success
  *
  */
